@@ -1,0 +1,11 @@
+#topper-logo {
+	margin-top: -0.5vh;
+    margin-left: 0vh;
+    width: 76vh;
+    height: 13vh;
+    background-image: url(https://github.com/gearshiftstudios/themoonlightranch/blob/main/res/logo_large.png?raw=true);
+    transition: 0.5s ease-in-out;
+}
+#topper-logo:hover {
+    background-image: url(https://github.com/gearshiftstudios/themoonlightranch/blob/main/res/logo_large_glow.png?raw=true);
+}

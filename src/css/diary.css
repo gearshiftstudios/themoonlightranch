@@ -1,0 +1,20 @@
+#diary-write {
+	margin: 1vh;
+	width: 6vh;
+	height: 6vh;
+	font-size: 8vh;
+	background-size: 50% 50%;
+	background-image: url(https://github.com/gearshiftstudios/themoonlightranch/blob/main/res/plus.png?raw=true);
+}
+#diary-entries {
+	margin-top: 12vh;
+	margin-left: 50vw;
+	width: 80vh;
+	height: 88vh;
+	transform: translate(-50%, 0%);
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

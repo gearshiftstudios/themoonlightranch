@@ -1,0 +1,98 @@
+#home-info {
+	margin-left: -60vh;
+	margin-top: 56.5vh;
+	width: 45vh;
+	height: 75vh;
+	transform: translate(0%, -50%); 
+	opacity: 0;
+	animation: home-info-in 1s ease-out forwards;
+}
+#home-info-title {
+	width: 100%;
+	height: 5vh;
+	margin-top: 2vh;
+	font-family: 'Montserrat', sans-serif;
+}
+#home-info-content {
+	width: calc(100% - 12vh);
+	height: calc(100% - 18vh);
+	margin-left: 3vh;
+	margin-top: 10vh;
+	text-align: center;
+}
+#home-video {
+	width: 96vh;
+	height: 54vh;
+	transform: translate(50%, -50%); 
+	margin-top: 200vh;
+	margin-right: calc((100% - 59vh) / 2);
+	opacity: 0;
+	animation: home-video-in 1s ease-out forwards;
+}
+#home-social-instagram {
+	margin-right: 1vh;
+	margin-bottom: 1vh;
+	width: 10vh;
+	height: 10vh;
+	opacity: 0;
+	background-image: url(https://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png);
+	animation: home-social-in 1s ease-out forwards;
+	transition: 0.5s ease-out;
+}
+#home-social-instagram:hover {
+	cursor: pointer;
+	margin-bottom: 2vh;
+}
+#home-more-videos {
+	width: 24vh;
+	height: 6vh;
+	font-size: 3vh;
+	padding-top: 2vh;
+	margin-bottom: -9vh;
+	margin-left: 50%;
+	transform: translate(-50%, 0%)
+}
+
+
+/* animations */
+@keyframes main-in {
+	from {
+		filter: blur(4px);
+	} to {
+		filter: blur(0px);
+	}
+}
+@keyframes topper-buttons-in {
+	from {
+		margin-right: -80vh;
+	} to {
+		margin-left: 0vh;
+	}
+}
+@keyframes home-info-in {
+	from {
+		opacity: 0;
+		margin-left: -60vh;
+	} to {
+		opacity: 1;
+		margin-left: 6.5vh;
+	}
+}
+@keyframes home-video-in {
+	from {
+		opacity: 0;
+		margin-top: 200vh;
+	} to {
+		opacity: 1;
+		margin-top: 56.5vh;
+	}
+}
+@keyframes home-social-in {
+	from {
+		opacity: 0;
+		margin-bottom: -30vh;
+	} to {
+		opacity: 1;
+		margin-bottom: 1vh;
+	}
+}

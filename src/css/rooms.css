@@ -1,0 +1,154 @@
+#svg-rooms {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+#room-house {
+	width: 100vh;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    margin-top: 56.5vh;
+    margin-left: calc((100% - 70vh) / 2);
+    background-image: url(https://github.com/gearshiftstudios/themoonlightranch/blob/main/res/house_front.png?raw=true);
+	opacity: 0;
+	transition: 0.5s ease-in-out;
+	animation: rooms-house-in 2s ease-out forwards;
+}
+#room-container {
+	margin-right: 9.5vh;
+	margin-top: 45vh;
+	width: 50vh;
+	height: 40vh;
+	transform: translate(0%, -50%) scale(1.2);
+	background:transparent;
+	box-shadow: none;
+	transition: 0.5s ease-in-out;
+	animation: rooms-container-in 1s ease-out forwards;
+}
+#room-image {
+	margin-left: 50%;
+	margin-top: 40%;
+	width: 100%;
+	height: 100%;
+	transform: translate(-50%, -50%);
+	background-image: none;
+	transition: 0.5s ease-in-out;
+}
+#room-name {
+	min-width: 50%;
+	margin-left: 50%;
+	margin-top: -4.5vh;
+	background: transparent;
+	height: 3.5vh;
+	font-size: 2.5vh;
+	box-shadow: none;
+	transform: translate(-50%, 0%);
+}
+#room-name-text {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	font-size: 2.5vh;
+	font-family: 'Montserrat';
+}
+#room-back {
+	margin-left: -10%;
+	width: 3.5vh;
+	height: 3.5vh;
+	transform: translate(-50%, 0%);
+}
+#room-next {
+	margin-left: 110%;
+	width: 3.5vh;
+	height: 3.5vh;
+	transform: translate(-50%, 0%) rotate(180deg);
+}
+#room-back:hover {
+	background-color: rgb(185, 185, 185);
+	box-shadow: 0px 5px 8px black, inset 0px 0px 1vh black;
+}
+#room-next:hover {
+	background-color: rgb(185, 185, 185);
+	box-shadow: 0px -5px 8px black, inset 0px 0px 1vh black;
+}
+#room-info {
+	margin-left: 16vh;
+	margin-top: 41.5vh;
+	width: 32vh;
+	height: 18vh;
+	padding: 1vh;
+	transition: 0.25s ease-in-out;
+}
+#room-sections {
+	margin-left: 0vh;
+	margin-top: 41.5vh;
+	width: 15vh;
+	height: 12vh;
+	overflow: hidden;
+}
+#room-sections-general, #room-sections-bathroom, #room-sections-technology, #room-sections-accessories, #room-sections-views {
+	width: 100%;
+	height: 4vh;
+	border-radius: 0px;
+}
+#room-image-back {
+	width: 10vh;
+	height: 100%;
+	border-radius: 0px 4px 4px 0px;
+	background-image: none;
+	background-size: 100% 8.5%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	transform: scaleX(-1);
+	opacity: 0;
+	box-shadow: none;
+}
+#room-image-next {
+	width: 10vh;
+	height: 100%;
+	border-radius: 0px 4px 4px 0px;
+	background-image: none;
+	background-size: 100% 8.5%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	opacity: 0;
+	box-shadow: none;
+}
+#room-image-back:hover, #room-image-next:hover {
+	opacity: 100%;
+	background-size: 120% 10%;
+	cursor: pointer;
+}
+
+/* animations */
+@keyframes in-out-scale {
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+	} 50% {
+		transform: translate(-50%, -50%) scale(0);
+	} 100% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+@keyframes rooms-container-in {
+	from {
+		opacity: 0;
+		margin-right: -100vh;
+	} to {
+		opacity: 1;
+		margin-right: 9.5vh;
+	}
+}
+@keyframes rooms-house-in {
+	from {
+		opacity: 0;
+		margin-left: -200vh;
+	} to {
+		opacity: 1;
+		margin-left: calc((100% - 70vh) / 2);
+	}
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Moonlight Ranch</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com"/>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/src/css/elements.css"/>
+	<link rel="stylesheet" type="text/css" href="/src/css/topper.css"/>
+	<link rel="stylesheet" type="text/css" href="/src/css/home.css"/>
+	<link rel="stylesheet" type="text/css" href="/src/css/rooms.css"/>
+	<link rel="stylesheet" type="text/css" href="/src/css/diary.css"/>
+</head>
+<body>
+	<main>
+		<page id="home-page">
+			<tab-lt id="home-info">
+				<label-lt id="home-info-title">Welcome</label-lt>
+				<container-lt id="home-info-content">It's been one long over-extended <text-important>"Corona Vacation"</text-important> for all of us. Wether your working at home or somewhere where your job is considered essential, you have felt the impact this <text-important>"break"</text-important> has had. Here at  <text-mlr>The Moonlight Ranch</text-mlr>, you canget away from all that urban chaos and enjoy the views of nature.</container-lt>
+			</tab-lt>
+			<tab-rt id="home-video">
+				<iframe src="https://youtube.com/embed/zPFOqIGrgBQ?rel=0" id="home-video-content" frameborder="0" width="100%" height="100%" style="border-radius:0.4vh;outline: none;"></iframe>
+				<button-lb id="home-more-videos">More videos</button-lb>
+			</tab-rt>
+			<image-rb-t id='home-social-instagram' class="background-full" type="button" onclick="window.open('https://www.instagram.com/______whiteboii/','_blank')"></image-rb>
+		</page>
+		<page id="rooms-page">
+			<image-lt-t id='room-house' class="background-full">
+				<svg id="svg-rooms" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><style>.cls-1{fill:none;}</style></defs><polygon id="svg-room-5" class="cls-1" points="80.85 101.07 81.82 121.68 103.92 129.49 103.18 105.89 80.85 101.07"/><polygon id="svg-room-6" class="cls-1" points="176.74 130.38 177.81 105.81 131.67 112.04 103.18 105.89 103.92 129.49 133.33 139.89 176.74 130.38"/><polygon id="svg-room-1" class="cls-1" points="81.82 121.68 82.63 138.93 83.3 139.44 83.37 142.19 104.72 153.04 103.99 129.52 81.82 121.68"/><polygon id="svg-room-2" class="cls-1" points="175.67 154.7 176.74 130.38 133.33 139.89 103.99 129.52 104.72 153.04 133.07 167.44 175.67 154.7"/><polygon id="svg-room-7" class="cls-1" points="89.89 109.52 55.52 104.93 57.56 128.05 91.44 136.19 153.23 118.78 153.37 98.56 89.89 109.52"/><polygon id="svg-room-3" class="cls-1" points="153.23 118.78 128 125.89 128 145.03 153.11 135.83 153.23 118.78"/><polygon id="svg-room-4" class="cls-1" points="91.44 136.19 57.56 128.05 59.52 150.11 93.56 161.33 93.5 157.67 128 145.03 128 125.89 91.44 136.19"/><rect class="cls-1" width="256" height="256"/></svg>
+			</image-lt-t>
+			<image-rt id='room-container'>
+				<image-lt id='room-image'>
+					<image-lt id="room-image-back"></image-lt>
+					<image-rt id="room-image-next"></image-rt>
+				</image-lt>
+				<auto-container-lt id="room-name">
+					<auto-container-lt id="room-name-text"></auto-container-lt>
+					<select-left id='room-back'></select-left>
+					<select-right id='room-next'></select-right>
+				</auto-container-lt>
+				<container id="room-info"></container>
+				<container id="room-sections">
+					<button id="room-sections-general">General</button>
+					<button id="room-sections-bathroom">Bathroom</button>
+					<button id="room-sections-views">Views</button>
+				</container>
+			</image-rt>
+		</page>
+		<page id="activities-page"></page>
+		<page id="diary-page">
+			<button-lb id='diary-write'></button-lb>
+			<image-lt-t id="diary-entries"></image-lt-t>
+		</page>
+		<topper>
+			<image-lt-t id="topper-logo" class="background-contain"></image-lt-t>
+			<topper-buttons id="topper-buttons">
+				<topper-button id="topper-home">Home</topper-button>
+				<topper-button id="topper-rooms">Rooms</topper-button>
+				<topper-button id="topper-activities">Activities</topper-button>
+				<topper-button id="topper-diary">Diary</topper-button>
+			</topper-buttons>
+		</topper>
+	</main>
+	<script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+	<script src="/src/js/gearx.js"></script>
+	<script src="/src/js/site.js"></script>
+	<script src="/src/js/rooms.js"></script>
+	<script src="/src/js/diary.js"></script>
+	<script>
+		const MLR = io()
+		
+		var admin = false
+
+		MLR.on('[client] check IP Adress', (loginIPs, clientIP) => {
+			let checkIPs = 0
+			for(let i = 0; i < loginIPs.length; i++) {
+				if(checkIPs < loginIPs.length) {
+					if(loginIPs[i] === clientIP) {
+						MLR.emit('[server] IP is host')
+						Engine.log('Welcome admin!').server.reg()
+					} else {
+						checkIPs++
+					}
+				} else {
+					Engine.log('Not admin.').server.reg()
+				}
+			}
+		})
+
+		MLR.on('[client] IP is host', () => {
+			admin = true
+			Graphics.element('diary-write').actions.show(0)
+		})
+
+		MLR.on('[server] success credentials', () => {
+			Graphics.element('diary-login-username-input').actions.setValue('')
+			Graphics.element('diary-login-password-input').actions.setValue('')
+			Engine.log('Admin logged in. Ready to write an entry.').server.reg()
+			Graphics.element('diary-login').actions.hide(0)
+		})
+
+		MLR.on('[server] fail credentials', () => {
+			Graphics.element('diary-login-username-input').actions.setValue('')
+			Graphics.element('diary-login-password-input').actions.setValue('')
+			Engine.log('Admin credentials do not match.').server.reg()
+		})
+
+		Graphics.element('diary-write').actions.hide(0)
+
+		Graphics.preloadImages(['arrow.png', 'plus.png', 'house_front.png','house_back.png', 'logo_large.png', 'logo_large_glow.png', 'r1g1.jpg', 'r2g1.jpg', 'r3g1.jpg', 'r5g1.jpg', 'r6g1.jpg', 'r7g1.jpg', 'r1b1.jpg', 'r1b2.jpg', 'r2b1.jpg', 'r2b2.jpg', 'r3b1.jpg', 'r3b2.jpg', 'r4b1.jpg', 'r4b2.jpg', 'r5b1.jpg', 'r5b2.jpg', 'r6b1.jpg', 'r6b2.jpg', 'r7b1.jpg', 'r1v1.jpg', 'r1v2.jpg', 'r2v1.jpg', 'r2v2.jpg', 'r3v1.jpg', 'r3v2.jpg', 'r3v3.jpg', 'r4v1.jpg', 'r4v2.jpg', 'r4v3.jpg', 'r4v4.jpg', 'r5v1.jpg', 'r5v2.jpg', 'r6v1.jpg', 'r6v2.jpg', 'r7v1.jpg', 'r7v2.jpg'])
+	</script>
+</body>
+</html>
